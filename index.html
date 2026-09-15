@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#FCFEFF">
+  <meta name="theme-color" content="#573DFF">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <link rel="manifest" href="manifest.json">
 
@@ -14,6 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap"
     rel="stylesheet"
@@ -27,14 +28,13 @@
     html,
     body {
       margin: 0;
-      padding: 0;
       width: 100%;
       min-height: 100%;
     }
 
     body {
-      background: #FCFEFF;
-      color: #2B2D42;
+      background: #573DFF;
+      color: #FFFFFF;
       font-family: Archivo, -apple-system, BlinkMacSystemFont,
         "Helvetica Neue", Arial, sans-serif;
     }
@@ -45,183 +45,155 @@
       flex-direction: column;
     }
 
-    /* Top navigation */
+    /* Header */
 
-    .nav {
-      height: 72px;
-      padding: 0 28px;
+    .header {
+      padding: 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #C4C3C8;
-      background: #FFFFFF;
+      align-items: center;
     }
 
     .logo {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 600;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
     }
 
-    .nav-right {
+    .status {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
+      letter-spacing: 0.5px;
     }
 
-    .online-dot {
+    .status-dot {
       width: 7px;
       height: 7px;
-      border-radius: 50%;
       background: #C4FF3C;
+      border-radius: 50%;
     }
 
     /* Main */
 
     .main {
       flex: 1;
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 72px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 70px 24px 50px;
     }
 
-    .label {
-      color: #573DFF;
+    .eyebrow {
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.4px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      opacity: 0.75;
+      margin-bottom: 20px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(42px, 10vw, 68px);
-      line-height: 0.98;
-      letter-spacing: -2.8px;
+      font-size: clamp(48px, 13vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -4px;
       font-weight: 600;
-      max-width: 650px;
     }
 
-    .intro {
-      margin: 24px 0 0;
-      max-width: 520px;
-      font-size: 17px;
-      line-height: 1.55;
-      color: #2B2D42;
+    .description {
+      max-width: 390px;
+      margin: 24px auto 0;
+      font-size: 16px;
+      line-height: 1.5;
+      opacity: 0.85;
     }
 
-    /* Conversation area */
+    /* Tony card */
 
-    .console {
+    .card {
+      width: 100%;
+      max-width: 430px;
       margin-top: 64px;
-      border: 1px solid #C4C3C8;
       background: #FFFFFF;
-    }
-
-    .console-header {
-      height: 52px;
-      padding: 0 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #C4C3C8;
-    }
-
-    .console-title {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .console-status {
-      font-size: 11px;
       color: #2B2D42;
+      border-radius: 24px;
+      padding: 28px;
+      text-align: left;
     }
 
-    .console-body {
-      min-height: 190px;
-      padding: 28px 20px;
+    .card-top {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card-label {
+      font-size: 11px;
+      opacity: 0.5;
     }
 
     .message {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .message-marker {
-      width: 3px;
-      min-height: 36px;
-      background: #573DFF;
-      flex-shrink: 0;
+      border-left: 3px solid #573DFF;
+      padding-left: 14px;
+      margin-bottom: 28px;
     }
 
     .message-label {
-      font-size: 11px;
-      color: #C4C3C8;
-      margin-bottom: 5px;
+      font-size: 10px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.6px;
+      opacity: 0.45;
+      margin-bottom: 7px;
     }
 
     .message-text {
-      font-size: 16px;
-      line-height: 1.45;
+      font-size: 17px;
+      line-height: 1.4;
     }
 
-    /* ElevenLabs area */
-
     .agent {
-      margin-top: 28px;
       display: flex;
       justify-content: center;
-      min-height: 70px;
+      min-height: 65px;
     }
 
     /* Footer */
 
     .footer {
-      padding: 20px 28px;
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #C4C3C8;
-      background: #FFFFFF;
+      padding: 20px 24px 26px;
+      text-align: center;
       font-size: 11px;
-      color: #2B2D42;
+      opacity: 0.65;
     }
 
     @media (max-width: 600px) {
-      .nav {
-        height: 64px;
-        padding: 0 20px;
-      }
-
       .main {
-        padding: 48px 20px 36px;
+        padding-top: 55px;
       }
 
       h1 {
-        letter-spacing: -2px;
+        letter-spacing: -3px;
       }
 
-      .intro {
+      .description {
         font-size: 15px;
       }
 
-      .console {
-        margin-top: 48px;
-      }
-
-      .footer {
-        padding: 18px 20px;
+      .card {
+        margin-top: 52px;
+        border-radius: 20px;
+        padding: 24px;
       }
     }
   </style>
@@ -231,60 +203,69 @@
 
   <div class="app">
 
-    <nav class="nav">
-      <div class="logo">Tony SRE</div>
+    <header class="header">
 
-      <div class="nav-right">
-        <span class="online-dot"></span>
-        <span>ONLINE</span>
+      <div class="logo">
+        Tony SRE
       </div>
-    </nav>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        ONLINE
+      </div>
+
+    </header>
 
     <main class="main">
 
-      <div class="label">Autonomous on-call engineer</div>
+      <div class="eyebrow">
+        Autonomous on-call engineer
+      </div>
 
-      <h1>What's going on?</h1>
+      <h1>
+        What's<br>
+        going on?
+      </h1>
 
-      <p class="intro">
-        Tony SRE investigates incidents, finds the signal, and helps resolve
-        issues before they escalate.
+      <p class="description">
+        Tony SRE investigates incidents and helps resolve issues before they escalate.
       </p>
 
-      <section class="console">
+      <section class="card">
 
-        <div class="console-header">
-          <div class="console-title">Tony SRE</div>
-          <div class="console-status">Ready</div>
+        <div class="card-top">
+          <div class="card-title">
+            Tony SRE
+          </div>
+
+          <div class="card-label">
+            READY
+          </div>
         </div>
 
-        <div class="console-body">
+        <div class="message">
 
-          <div class="message">
-            <div class="message-marker"></div>
-
-            <div>
-              <div class="message-label">Tony SRE</div>
-
-              <div class="message-text">
-                Hey, I'm Tony. What's going on?
-              </div>
-            </div>
+          <div class="message-label">
+            Tony
           </div>
 
-          <div class="agent">
-
-            <elevenlabs-convai
-              agent-id="YOUR_AGENT_ID"
-              variant="expanded"
-              action-text="Talk to Tony"
-              start-call-text="Talk to Tony"
-              end-call-text="End call"
-              listening-text="Listening..."
-              speaking-text="Tony is speaking..."
-            ></elevenlabs-convai>
-
+          <div class="message-text">
+            Hey, I'm Tony. What's going on?
           </div>
+
+        </div>
+
+        <div class="agent">
+
+          <elevenlabs-convai
+            agent-id="YOUR_AGENT_ID"
+            variant="expanded"
+            action-text="Talk to Tony"
+            start-call-text="Talk to Tony"
+            end-call-text="End call"
+            listening-text="Listening..."
+            speaking-text="Tony is speaking..."
+          ></elevenlabs-convai>
 
         </div>
 
@@ -293,8 +274,7 @@
     </main>
 
     <footer class="footer">
-      <span>Vibranium Labs</span>
-      <span>Tony SRE</span>
+      Vibranium Labs
     </footer>
 
   </div>
