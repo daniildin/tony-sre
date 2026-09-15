@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#2B2D42">
+
+  <meta name="theme-color" content="#FCFEFF">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <link rel="manifest" href="manifest.json">
 
   <title>Tony SRE</title>
 
-  <!-- Archivo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -24,99 +24,205 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      min-height: 100vh;
-      background: #2B2D42;
-      color: #FFFFFF;
-      font-family: Archivo, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: #FCFEFF;
+      color: #2B2D42;
+      font-family: Archivo, -apple-system, BlinkMacSystemFont,
+        "Helvetica Neue", Arial, sans-serif;
     }
 
     .app {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 24px;
     }
 
-    header {
+    /* Top navigation */
+
+    .nav {
+      height: 72px;
+      padding: 0 28px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
+      border-bottom: 1px solid #C4C3C8;
+      background: #FFFFFF;
     }
 
-    .brand {
-      font-size: 18px;
+    .logo {
+      font-size: 17px;
       font-weight: 600;
+      letter-spacing: -0.3px;
     }
 
-    .status {
+    .nav-right {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       font-size: 12px;
       font-weight: 500;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
+    .online-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #C4FF3C;
     }
 
-    main {
+    /* Main */
+
+    .main {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      max-width: 500px;
       width: 100%;
+      max-width: 760px;
       margin: 0 auto;
+      padding: 72px 24px 48px;
     }
 
-    .eyebrow {
-      color: #C4C3C8;
-      font-size: 13px;
-      margin-bottom: 12px;
+    .label {
+      color: #573DFF;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
-      font-size: 42px;
-      line-height: 1.05;
+      font-size: clamp(42px, 10vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -2.8px;
       font-weight: 600;
-      letter-spacing: -1.5px;
+      max-width: 650px;
     }
 
-    .description {
+    .intro {
+      margin: 24px 0 0;
+      max-width: 520px;
+      font-size: 17px;
+      line-height: 1.55;
+      color: #2B2D42;
+    }
+
+    /* Conversation area */
+
+    .console {
+      margin-top: 64px;
+      border: 1px solid #C4C3C8;
+      background: #FFFFFF;
+    }
+
+    .console-header {
+      height: 52px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #C4C3C8;
+    }
+
+    .console-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .console-status {
+      font-size: 11px;
+      color: #2B2D42;
+    }
+
+    .console-body {
+      min-height: 190px;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .message {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .message-marker {
+      width: 3px;
+      min-height: 36px;
+      background: #573DFF;
+      flex-shrink: 0;
+    }
+
+    .message-label {
+      font-size: 11px;
       color: #C4C3C8;
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 16px 0 36px;
-      max-width: 340px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
     }
 
-    .call-container {
-      width: 100%;
-      min-height: 80px;
+    .message-text {
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    /* ElevenLabs area */
+
+    .agent {
+      margin-top: 28px;
       display: flex;
       justify-content: center;
-      align-items: center;
+      min-height: 70px;
     }
 
-    footer {
-      text-align: center;
-      color: #C4C3C8;
-      font-size: 12px;
-      padding-top: 24px;
+    /* Footer */
+
+    .footer {
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #C4C3C8;
+      background: #FFFFFF;
+      font-size: 11px;
+      color: #2B2D42;
     }
 
-    /* Keep ElevenLabs widget above the page */
-    elevenlabs-convai {
-      z-index: 10;
+    @media (max-width: 600px) {
+      .nav {
+        height: 64px;
+        padding: 0 20px;
+      }
+
+      .main {
+        padding: 48px 20px 36px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
+
+      .console {
+        margin-top: 48px;
+      }
+
+      .footer {
+        padding: 18px 20px;
+      }
     }
   </style>
 </head>
@@ -125,43 +231,70 @@
 
   <div class="app">
 
-    <header>
-      <div class="brand">Tony SRE</div>
+    <nav class="nav">
+      <div class="logo">Tony SRE</div>
 
-      <div class="status">
-        <span class="status-dot"></span>
-        ONLINE
+      <div class="nav-right">
+        <span class="online-dot"></span>
+        <span>ONLINE</span>
       </div>
-    </header>
+    </nav>
 
-    <main>
+    <main class="main">
 
-      <div class="eyebrow">Autonomous on-call engineer</div>
+      <div class="label">Autonomous on-call engineer</div>
 
       <h1>What's going on?</h1>
 
-      <p class="description">
-        Tony SRE investigates incidents, finds the signal, and helps resolve issues before they escalate.
+      <p class="intro">
+        Tony SRE investigates incidents, finds the signal, and helps resolve
+        issues before they escalate.
       </p>
 
-      <div class="call-container">
+      <section class="console">
 
-        <elevenlabs-convai
-          agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
-          variant="expanded"
-          action-text="Talk to Tony"
-          start-call-text="Talk to Tony"
-          end-call-text="End call"
-          listening-text="Listening..."
-          speaking-text="Tony is speaking..."
-        ></elevenlabs-convai>
+        <div class="console-header">
+          <div class="console-title">Tony SRE</div>
+          <div class="console-status">Ready</div>
+        </div>
 
-      </div>
+        <div class="console-body">
+
+          <div class="message">
+            <div class="message-marker"></div>
+
+            <div>
+              <div class="message-label">Tony SRE</div>
+
+              <div class="message-text">
+                Hey, I'm Tony. What's going on?
+              </div>
+            </div>
+          </div>
+
+          <div class="agent">
+
+            <elevenlabs-convai
+              agent-id="YOUR_AGENT_ID"
+              variant="expanded"
+              action-text="Talk to Tony"
+              start-call-text="Talk to Tony"
+              end-call-text="End call"
+              listening-text="Listening..."
+              speaking-text="Tony is speaking..."
+            ></elevenlabs-convai>
+
+          </div>
+
+        </div>
+
+      </section>
 
     </main>
 
-    <footer>
-      Vibranium Labs
+    <footer class="footer">
+      <span>Vibranium Labs</span>
+      <span>Tony SRE</span>
     </footer>
 
   </div>
