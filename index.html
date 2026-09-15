@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>Tony SRE</title>
+
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#120022" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100dvh;
+
+      font-family:
+        Archivo,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+      color: #ffffff;
+      overflow-x: hidden;
+
+      background:
+        radial-gradient(
+          circle at 8% 60%,
+          rgba(112, 0, 255, 0.95) 0%,
+          rgba(91, 0, 214, 0.45) 23%,
+          transparent 46%
+        ),
+        radial-gradient(
+          circle at 92% 40%,
+          rgba(116, 0, 255, 0.95) 0%,
+          rgba(87, 0, 210, 0.4) 25%,
+          transparent 48%
+        ),
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(87, 61, 255, 0.22),
+          transparent 40%
+        ),
+        linear-gradient(
+          120deg,
+          #370078 0%,
+          #140024 35%,
+          #090011 60%,
+          #43009a 100%
+        );
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 20%,
+          rgba(0, 0, 0, 0.32) 100%
+        );
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+      min-height: 100dvh;
+
+      display: flex;
+      flex-direction: column;
+
+      padding:
+        max(28px, env(safe-area-inset-top))
+        max(32px, env(safe-area-inset-right))
+        max(26px, env(safe-area-inset-bottom))
+        max(32px, env(safe-area-inset-left));
+    }
+
+    /* HEADER */
+
+    header {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-name {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .beta {
+      padding: 7px 12px;
+
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.12);
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: rgba(255,255,255,0.72);
+
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #c4ff3c;
+
+      box-shadow:
+        0 0 8px rgba(196,255,60,0.8),
+        0 0 18px rgba(196,255,60,0.35);
+    }
+
+    /* MAIN */
+
+    main {
+      flex: 1;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero {
+      width: min(1000px, 100%);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+
+      transform: translateY(-2vh);
+    }
+
+    .eyebrow {
+      margin-bottom: 28px;
+
+      color: #b8a8ff;
+
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.34em;
+    }
+
+    h1 {
+      margin-bottom: 28px;
+
+      font-size: clamp(54px, 7vw, 100px);
+      font-weight: 600;
+
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .description {
+      width: min(760px, 100%);
+
+      margin: 0 auto;
+
+      color: rgba(255,255,255,0.74);
+
+      font-size: clamp(17px, 2vw, 23px);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* VOICE AREA */
+
+    .voice-area {
+      width: 100%;
+
+      margin-top: 42px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ACTUAL TALK TO TONY BUTTON */
+
+    .talk-button {
+      width: min(470px, 92%);
+      min-height: 110px;
+
+      padding: 16px 36px;
+
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f5f1ff 100%
+        );
+
+      color: #573dff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+
+      font-family: inherit;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 0 30px rgba(87,61,255,0.65),
+        0 0 70px rgba(87,61,255,0.30),
+        0 20px 55px rgba(0,0,0,0.30);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .talk-button:hover {
+      transform: translateY(-2px) scale(1.015);
+
+      box-shadow:
+        0 0 38px rgba(87,61,255,0.8),
+        0 0 85px rgba(87,61,255,0.4),
+        0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .talk-button:active {
+      transform: scale(0.98);
+    }
+
+    .voice-icon {
+      width: 64px;
+      height: 64px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(87,61,255,0.10);
+
+      font-size: 30px;
+    }
+
+    /* CONNECTED */
+
+    .talk-button.connected {
+      box-shadow:
+        0 0 35px rgba(87,61,255,0.85),
+        0 0 90px rgba(87,61,255,0.4),
+        0 20px 55px rgba(0,0,0,0.30);
+    }
+
+    /* TONY SPEAKING */
+
+    .talk-button.speaking {
+      transform: scale(1.025);
+
+      box-shadow:
+        0 0 45px rgba(87,61,255,0.95),
+        0 0 110px rgba(87,61,255,0.55),
+        0 20px 55px rgba(0,0,0,0.30);
+    }
+
+    .helper {
+      width: 100%;
+
+      margin-top: 22px;
+
+      text-align: center;
+
+      color: rgba(255,255,255,0.52);
+
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+
+    footer {
+      color: rgba(255,255,255,0.4);
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+      .app {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .beta {
+        padding: 5px 8px;
+        font-size: 8px;
+      }
+
+      .status {
+        gap: 7px;
+
+        font-size: 8px;
+        letter-spacing: 0.2em;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+      }
+
+      .hero {
+        transform: translateY(-1vh);
+      }
+
+      .eyebrow {
+        margin-bottom: 20px;
+
+        font-size: 9px;
+        letter-spacing: 0.25em;
+        line-height: 1.5;
+      }
+
+      h1 {
+        margin-bottom: 22px;
+
+        font-size: clamp(48px, 14vw, 66px);
+        line-height: 0.95;
+      }
+
+      .description {
+        max-width: 350px;
+
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .voice-area {
+        margin-top: 34px;
+      }
+
+      .talk-button {
+        width: min(360px, 100%);
+        min-height: 94px;
+
+        padding: 14px 24px;
+
+        gap: 16px;
+
+        font-size: 23px;
+      }
+
+      .voice-icon {
+        width: 54px;
+        height: 54px;
+
+        font-size: 25px;
+      }
+
+      .helper {
+        margin-top: 18px;
+        font-size: 13px;
+      }
+
+      footer {
+        text-align: center;
+
+        font-size: 8px;
+        letter-spacing: 0.22em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header>
+
+      <div class="brand">
+        <div class="brand-name">Tony SRE</div>
+        <div class="beta">BETA</div>
+      </div>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        ONLINE
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <section class="hero">
+
+        <div class="eyebrow">
+          AUTONOMOUS ON-CALL ENGINEER
+        </div>
+
+        <h1>
+          Always-on AI SRE
+        </h1>
+
+        <p class="description">
+          Specialized agents handle investigation, coordination,
+          and follow-through so engineers focus on resolving,
+          not chasing.
+        </p>
+
+
+        <!-- CUSTOM TONY BUTTON -->
+
+        <div class="voice-area">
+
+          <button
+            id="talkButton"
+            class="talk-button"
+            type="button"
+          >
+
+            <span
+              id="voiceIcon"
+              class="voice-icon"
+            >
+              ☎
+            </span>
+
+            <span id="buttonText">
+              Talk to Tony
+            </span>
+
+          </button>
+
+          <div
+            id="helper"
+            class="helper"
+          >
+            Tap to start a voice conversation
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+      BUILT BY VIBRANIUM LABS
+    </footer>
+
+  </div>
+
+
+  <!-- CUSTOM ELEVENLABS LOGIC -->
+
+  <script
+    type="module"
+    src="./script.js"
+  ></script>
+
+
+  <!-- PWA -->
+
+  <script>
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener("load", function () {
+
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(function (error) {
+
+            console.log(
+              "Service worker registration failed:",
+              error
+            );
+
+          });
+
+      });
+
+    }
+  </script>
+
+</body>
+</html>
