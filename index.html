@@ -28,7 +28,6 @@
 
     body {
       min-height: 100dvh;
-
       font-family:
         Archivo,
         -apple-system,
@@ -122,10 +121,10 @@
     .beta {
       padding: 7px 12px;
 
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 999px;
 
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255,255,255,0.12);
 
       font-size: 10px;
       font-weight: 600;
@@ -137,7 +136,7 @@
       align-items: center;
       gap: 10px;
 
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255,255,255,0.72);
 
       font-size: 11px;
       font-weight: 500;
@@ -153,8 +152,8 @@
       background: #c4ff3c;
 
       box-shadow:
-        0 0 8px rgba(196, 255, 60, 0.8),
-        0 0 18px rgba(196, 255, 60, 0.35);
+        0 0 8px rgba(196,255,60,0.8),
+        0 0 18px rgba(196,255,60,0.35);
     }
 
     /* MAIN */
@@ -162,20 +161,21 @@
     main {
       flex: 1;
 
+      width: 100%;
+
       display: flex;
       justify-content: center;
       align-items: center;
-
-      width: 100%;
     }
 
     .hero {
-      width: min(950px, 100%);
-      text-align: center;
+      width: min(1000px, 100%);
 
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      text-align: center;
 
       transform: translateY(-2vh);
     }
@@ -205,20 +205,19 @@
 
       margin: 0 auto;
 
-      color: rgba(255, 255, 255, 0.74);
+      color: rgba(255,255,255,0.74);
 
       font-size: clamp(17px, 2vw, 23px);
       font-weight: 400;
-
       line-height: 1.5;
     }
 
-    /* VOICE */
+    /* TONY BUTTON AREA */
 
     .voice-area {
       width: 100%;
 
-      margin-top: 36px;
+      margin-top: 42px;
 
       display: flex;
       flex-direction: column;
@@ -226,35 +225,79 @@
       justify-content: center;
     }
 
-    .widget-row {
-      width: 100%;
-      min-height: 80px;
+    /*
+      Large visual bubble around the real
+      ElevenLabs interaction.
+    */
+
+    .tony-bubble {
+      width: min(470px, 92%);
+      min-height: 110px;
+
+      padding: 14px 24px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      position: relative;
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f6f2ff 100%
+        );
+
+      border: 1px solid rgba(255,255,255,0.9);
+
+      box-shadow:
+        0 0 0 1px rgba(87,61,255,0.15),
+        0 0 28px rgba(87,61,255,0.65),
+        0 0 65px rgba(87,61,255,0.32),
+        0 20px 55px rgba(0,0,0,0.32);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .tony-bubble:hover {
+      transform: translateY(-2px) scale(1.015);
+
+      box-shadow:
+        0 0 0 1px rgba(87,61,255,0.2),
+        0 0 35px rgba(87,61,255,0.8),
+        0 0 80px rgba(87,61,255,0.4),
+        0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .widget-center {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     elevenlabs-convai {
       display: block;
 
       width: auto;
-      min-width: 160px;
-      min-height: 70px;
+      min-width: 190px;
+      min-height: 72px;
 
       margin: 0 auto;
     }
 
     .helper {
-      width: 100%;
+      margin-top: 22px;
 
-      margin-top: 14px;
+      width: 100%;
 
       text-align: center;
 
-      color: rgba(255, 255, 255, 0.48);
+      color: rgba(255,255,255,0.52);
 
       font-size: 14px;
       font-weight: 400;
@@ -263,7 +306,7 @@
     /* FOOTER */
 
     footer {
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255,255,255,0.4);
 
       font-size: 10px;
       font-weight: 600;
@@ -321,36 +364,34 @@
         margin-bottom: 22px;
 
         font-size: clamp(48px, 14vw, 66px);
-
         line-height: 0.95;
       }
 
       .description {
-        max-width: 340px;
+        max-width: 350px;
 
         font-size: 16px;
         line-height: 1.5;
       }
 
       .voice-area {
-        margin-top: 30px;
+        margin-top: 34px;
       }
 
-      .widget-row {
-        min-height: 80px;
+      .tony-bubble {
+        width: min(360px, 100%);
+        min-height: 100px;
+
+        padding: 12px 18px;
       }
 
       elevenlabs-convai {
-        width: auto;
-        min-width: 160px;
-        min-height: 70px;
-
-        margin-left: auto;
-        margin-right: auto;
+        min-width: 180px;
+        min-height: 68px;
       }
 
       .helper {
-        margin-top: 12px;
+        margin-top: 18px;
         font-size: 13px;
       }
 
@@ -402,21 +443,25 @@
         </p>
 
 
-        <!-- TONY VOICE -->
+        <!-- TONY VOICE BUTTON -->
 
         <div class="voice-area">
 
-          <div class="widget-row">
+          <div class="tony-bubble">
 
-            <elevenlabs-convai
-              agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
-              variant="expanded"
-              action-text="Talk to Tony"
-              start-call-text="Talk to Tony"
-              end-call-text="End call"
-              listening-text="Listening..."
-              speaking-text="Tony is speaking..."
-            ></elevenlabs-convai>
+            <div class="widget-center">
+
+              <elevenlabs-convai
+                agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
+                variant="expanded"
+                action-text="Talk to Tony"
+                start-call-text="Talk to Tony"
+                end-call-text="End call"
+                listening-text="Listening..."
+                speaking-text="Tony is speaking..."
+              ></elevenlabs-convai>
+
+            </div>
 
           </div>
 
@@ -450,6 +495,7 @@
   <!-- PWA -->
 
   <script>
+
     if ("serviceWorker" in navigator) {
 
       window.addEventListener("load", function () {
@@ -457,15 +503,18 @@
         navigator.serviceWorker
           .register("./sw.js")
           .catch(function (error) {
+
             console.log(
               "Service worker registration failed:",
               error
             );
+
           });
 
       });
 
     }
+
   </script>
 
 </body>
