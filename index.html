@@ -97,9 +97,7 @@
         max(32px, env(safe-area-inset-left));
     }
 
-    /* ---------------- */
-    /* HEADER           */
-    /* ---------------- */
+    /* HEADER */
 
     header {
       width: 100%;
@@ -159,9 +157,7 @@
         0 0 18px rgba(196, 255, 60, 0.35);
     }
 
-    /* ---------------- */
-    /* MAIN             */
-    /* ---------------- */
+    /* MAIN */
 
     main {
       flex: 1;
@@ -175,8 +171,11 @@
 
     .hero {
       width: min(950px, 100%);
-
       text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       transform: translateY(-2vh);
     }
@@ -204,7 +203,7 @@
     .description {
       width: min(760px, 100%);
 
-      margin: 0 auto 44px;
+      margin: 0 auto;
 
       color: rgba(255, 255, 255, 0.74);
 
@@ -214,32 +213,46 @@
       line-height: 1.5;
     }
 
-    /* ---------------- */
-    /* VOICE            */
-    /* ---------------- */
+    /* VOICE */
 
     .voice-area {
-      width: min(390px, 100%);
-      margin: 0 auto;
+      width: 100%;
+
+      margin-top: 36px;
 
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
-    /*
-      This is the REAL ElevenLabs widget.
-      It handles starting/stopping the conversation.
-    */
+    .widget-row {
+      width: 100%;
+      min-height: 80px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
 
     elevenlabs-convai {
       display: block;
-      width: 100%;
+
+      width: auto;
+      min-width: 160px;
       min-height: 70px;
+
+      margin: 0 auto;
     }
 
     .helper {
-      margin-top: 18px;
+      width: 100%;
+
+      margin-top: 14px;
+
+      text-align: center;
 
       color: rgba(255, 255, 255, 0.48);
 
@@ -247,9 +260,7 @@
       font-weight: 400;
     }
 
-    /* ---------------- */
-    /* FOOTER           */
-    /* ---------------- */
+    /* FOOTER */
 
     footer {
       color: rgba(255, 255, 255, 0.4);
@@ -260,9 +271,7 @@
       letter-spacing: 0.28em;
     }
 
-    /* ---------------- */
-    /* MOBILE           */
-    /* ---------------- */
+    /* MOBILE */
 
     @media (max-width: 600px) {
 
@@ -319,24 +328,29 @@
       .description {
         max-width: 340px;
 
-        margin-bottom: 34px;
-
         font-size: 16px;
         line-height: 1.5;
       }
 
       .voice-area {
-        width: 100%;
-        max-width: 350px;
+        margin-top: 30px;
+      }
+
+      .widget-row {
+        min-height: 80px;
       }
 
       elevenlabs-convai {
-        width: 100%;
+        width: auto;
+        min-width: 160px;
         min-height: 70px;
+
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .helper {
-        margin-top: 15px;
+        margin-top: 12px;
         font-size: 13px;
       }
 
@@ -350,40 +364,24 @@
   </style>
 </head>
 
-
 <body>
 
   <div class="app">
 
-    <!-- HEADER -->
-
     <header>
 
       <div class="brand">
-
-        <div class="brand-name">
-          Tony SRE
-        </div>
-
-        <div class="beta">
-          BETA
-        </div>
-
+        <div class="brand-name">Tony SRE</div>
+        <div class="beta">BETA</div>
       </div>
 
-
       <div class="status">
-
         <span class="status-dot"></span>
-
         ONLINE
-
       </div>
 
     </header>
 
-
-    <!-- MAIN -->
 
     <main>
 
@@ -393,11 +391,9 @@
           AUTONOMOUS ON-CALL ENGINEER
         </div>
 
-
         <h1>
           Always-on AI SRE
         </h1>
-
 
         <p class="description">
           Specialized agents handle investigation, coordination,
@@ -406,20 +402,23 @@
         </p>
 
 
-        <!-- REAL ELEVENLABS BUTTON -->
+        <!-- TONY VOICE -->
 
         <div class="voice-area">
 
-          <elevenlabs-convai
-            agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
-            variant="expanded"
-            action-text="Talk to Tony"
-            start-call-text="Talk to Tony"
-            end-call-text="End call"
-            listening-text="Listening..."
-            speaking-text="Tony is speaking..."
-          ></elevenlabs-convai>
+          <div class="widget-row">
 
+            <elevenlabs-convai
+              agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
+              variant="expanded"
+              action-text="Talk to Tony"
+              start-call-text="Talk to Tony"
+              end-call-text="End call"
+              listening-text="Listening..."
+              speaking-text="Tony is speaking..."
+            ></elevenlabs-convai>
+
+          </div>
 
           <div class="helper">
             Tap to start a voice conversation
@@ -431,8 +430,6 @@
 
     </main>
 
-
-    <!-- FOOTER -->
 
     <footer>
       BUILT BY VIBRANIUM LABS
@@ -450,7 +447,7 @@
   </script>
 
 
-  <!-- SERVICE WORKER -->
+  <!-- PWA -->
 
   <script>
     if ("serviceWorker" in navigator) {
