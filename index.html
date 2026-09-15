@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0f">
+  <meta name="theme-color" content="#2B2D42">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link rel="manifest" href="manifest.json">
+
   <title>Tony SRE</title>
+
+  <!-- Archivo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     * {
@@ -15,180 +27,158 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: #0b0b0f;
-      color: white;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      display: flex;
-      justify-content: center;
+      background: #2B2D42;
+      color: #FFFFFF;
+      font-family: Archivo, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
 
     .app {
-      width: 100%;
-      max-width: 480px;
       min-height: 100vh;
-      padding: 28px 20px;
       display: flex;
       flex-direction: column;
+      padding: 24px;
     }
 
-    .header {
+    header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 40px;
+      align-items: center;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 2px;
+    .brand {
+      font-size: 18px;
+      font-weight: 600;
     }
 
     .status {
-      font-size: 12px;
-      color: #55e68a;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 500;
     }
 
-    .dot {
+    .status-dot {
       width: 8px;
       height: 8px;
-      background: #55e68a;
       border-radius: 50%;
+      background: #C4FF3C;
     }
 
-    .hero {
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin-top: 30px;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    .hero h1 {
-      font-size: 38px;
-      margin: 0 0 10px;
-    }
-
-    .hero p {
-      color: #8d8d99;
-      margin: 0;
-      font-size: 15px;
-    }
-
-    .talk-button {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      border: none;
-      margin: 60px auto 35px;
-      display: block;
-      background: white;
-      color: #0b0b0f;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 0 50px rgba(255,255,255,0.12);
-      transition: transform 0.2s;
-    }
-
-    .talk-button:active {
-      transform: scale(0.94);
-    }
-
-    .conversation {
-      background: #141419;
-      border: 1px solid #25252d;
-      border-radius: 18px;
-      padding: 18px;
-      margin-top: auto;
-    }
-
-    .conversation-title {
-      color: #777783;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .eyebrow {
+      color: #C4C3C8;
+      font-size: 13px;
       margin-bottom: 12px;
     }
 
-    .message {
-      color: #dddde5;
-      font-size: 14px;
-      line-height: 1.5;
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -1.5px;
     }
 
-    .footer {
+    .description {
+      color: #C4C3C8;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 16px 0 36px;
+      max-width: 340px;
+    }
+
+    .call-container {
+      width: 100%;
+      min-height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer {
       text-align: center;
-      color: #555560;
-      font-size: 11px;
-      margin-top: 18px;
+      color: #C4C3C8;
+      font-size: 12px;
+      padding-top: 24px;
+    }
+
+    /* Keep ElevenLabs widget above the page */
+    elevenlabs-convai {
+      z-index: 10;
     }
   </style>
 </head>
 
 <body>
 
-  <main class="app">
+  <div class="app">
 
-    <header class="header">
-      <div class="logo">TONY SRE</div>
+    <header>
+      <div class="brand">Tony SRE</div>
 
       <div class="status">
-        <span class="dot"></span>
+        <span class="status-dot"></span>
         ONLINE
       </div>
     </header>
 
-    <section class="hero">
+    <main>
+
+      <div class="eyebrow">Autonomous on-call engineer</div>
+
       <h1>What's going on?</h1>
-      <p>Your AI SRE is ready.</p>
 
-    <elevenlabs-convai
-<div class="tony-call">
-  <div class="status">● ONLINE</div>
-  <h1>TONY SRE</h1>
-  <p>Your AI SRE is ready.</p>
+      <p class="description">
+        Tony SRE investigates incidents, finds the signal, and helps resolve issues before they escalate.
+      </p>
 
-  <elevenlabs-convai
-    agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
-    variant="expanded"
-    action-text="TALK TO TONY"
-    start-call-text="Talk to Tony"
-    end-call-text="End call"
-    listening-text="Listening..."
-    speaking-text="Tony is speaking..."
-  ></elevenlabs-convai>
-</div>
-></elevenlabs-convai>
+      <div class="call-container">
 
-<script
-  src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-  async
-  type="text/javascript"
-></script>
-    </section>
+        <elevenlabs-convai
+          agent-id="agent_4501k7xa0jn2fgkrvnrtfwwst6hq"
+          variant="expanded"
+          action-text="Talk to Tony"
+          start-call-text="Talk to Tony"
+          end-call-text="End call"
+          listening-text="Listening..."
+          speaking-text="Tony is speaking..."
+        ></elevenlabs-convai>
 
-    <section class="conversation">
-      <div class="conversation-title">
-        Tony
       </div>
 
-      <div class="message" id="message">
-        Hey, I'm Tony. What's going on?
-      </div>
-    </section>
+    </main>
 
-    <div class="footer">
-      Proactive AI for engineering teams
-    </div>
+    <footer>
+      Vibranium Labs
+    </footer>
 
-  </main>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js");
-    });
-  }
-</script>
+  </div>
+
+  <script
+    src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+    async
+    type="text/javascript">
+  </script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
 </body>
 </html>
